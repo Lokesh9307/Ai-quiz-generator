@@ -6,7 +6,6 @@ import QuizList from './QuizList';
 import InputForm from './InputForm';
 import ExportToPDF from './ExportToPdf';
 import Loader from './Loader';
-import GenerateGoogleForm from './GenerateGoogleForm';
 import NewChat from './NewChat';
 
 interface Quiz {
