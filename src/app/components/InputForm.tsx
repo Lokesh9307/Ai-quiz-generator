@@ -1,6 +1,7 @@
 // components/InputForm.tsx
 import { useState } from 'react';
 import { FaArrowAltCircleUp } from "react-icons/fa";
+import { IoReloadCircleSharp } from "react-icons/io5";
 import '../globals.css';
 
 interface InputFormProps {
@@ -10,6 +11,7 @@ interface InputFormProps {
 const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
     const [topicName, setTopicName] = useState<string>('');
     const [numQuestion, setNumQuestion] = useState<string>('');
+
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -29,9 +31,9 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className='w-full h-auto flex md:flex-row flex-col items-center justify-center  '>
+        <form onSubmit={handleSubmit} className='w-full h-auto flex md:flex-row flex-col items-center justify-center gap-2 '>
             <section 
-            className='flex md:flex-row flex-col gap-4 border-white/50 rounded-2xl p-5 bg-[#0a100d]   shadow-white border-2 md:w-auto w-[20rem]'
+            className='flex md:flex-row flex-col gap-4 border-white/50 rounded-2xl p-5 bg-[#0a100d]   shadow-white border-2 md:w-auto w-[20rem] relative'
             >
                 <div className='flex md:flex-row flex-col gap-4'>
                     <label htmlFor="topicName">Topic</label>

@@ -7,6 +7,7 @@ import InputForm from './InputForm';
 import ExportToPDF from './ExportToPdf';
 import Loader from './Loader';
 import GenerateGoogleForm from './GenerateGoogleForm';
+import NewChat from './NewChat';
 
 interface Quiz {
     question: string;
@@ -73,7 +74,8 @@ const QuizGenerator: React.FC = () => {
             <div className='fixed bottom-10 left-0 right-0 z-10'> {/* Fixed positioning */}
                 <InputForm onSubmit={handlePromptSubmit} />
             </div>
-            <div className='fixed right-3 top-10'>
+            <div className='fixed right-3 top-16 flex items-center justify-center gap-3'>
+                <NewChat setQuizzes={setQuizzes} setPrompt={setPrompt}/>
                 <ExportToPDF quizzes={quizzes} />
             </div>
         </div>
