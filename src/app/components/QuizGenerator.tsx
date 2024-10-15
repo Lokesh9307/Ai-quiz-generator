@@ -46,12 +46,13 @@ const QuizGenerator: React.FC = () => {
                 jsonResponse += chunkText;
             }
             jsonResponse = jsonResponse.replace(/```json|```/g, "");
-
+            console.log(jsonResponse)
             const parsedQuizzes = JSON.parse(jsonResponse) as Quiz[];
+            console.log(parsedQuizzes)
             setQuizzes(parsedQuizzes);
         } catch (error) {
             console.error("Error in API call or processing:", error);
-            setError("Error fetching quizzes. Please try again.");
+            setError("Inappropriate topic try something else!");
         } finally {
             setLoading(false);
         }
@@ -61,7 +62,7 @@ const QuizGenerator: React.FC = () => {
         <div className='relative h-auto w-full md:mb-[3rem] mb-[14rem]'>
             <div className='overflow-y-auto pb-16 flex items-center justify-center'> {/* Added padding to prevent content from being obscured */}
                 {loading && <Loader />}
-                {error && <p>{error}</p>}
+                {error && <p className='p-2 border-2 border-red-600 mt-4 text-center rounded-2xl text-red-200'>{error} <br /> <span className='text-center '>Try again!</span> </p> }
                 {!loading && !error && (
                     <>
                         <QuizList quizzes={quizzes} />
