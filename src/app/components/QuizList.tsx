@@ -32,7 +32,7 @@ const QuizList: React.FC<QuizListProps> = ({ quizzes }) => {
         <div className='w-full h-full sm:text-lg text-sm text-white px-5 flex flex-col gap-6 mb-1rem mt-5'>
             {quizzes.length > 0 && <h1 className='text-center'>Quiz Questions</h1>}
             {quizzes.map((quiz, index) => (
-                <div key={index} className='mt-5 border p-4 rounded bg-gray-800'>
+                <div key={index} className='mt-5 border p-4 rounded-2xl '>
                     <p><strong>Question {index + 1}: </strong> {quiz.question}</p>
                     {quiz.options.map((option, i) => (
                         <div key={i} className='flex items-center gap-2'>
@@ -56,7 +56,6 @@ const QuizList: React.FC<QuizListProps> = ({ quizzes }) => {
                     {showAnswer[index] && (
                         <p><strong>Correct Answer:</strong> {quizzes[index].answer}</p>
                     )}
-                    <hr />
                 </div>
             ))}
         </div>
