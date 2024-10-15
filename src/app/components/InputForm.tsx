@@ -15,12 +15,28 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (numQuestion.length > 2){
+        if (numQuestion.length > 2) {
             return
         }
 
         // Combine topicName and numQuestion into a single prompt string
-        const prompt = `give me ${numQuestion} quizzes on the topic of ${topicName} with options and answer in clear object format in string directly`;
+        const prompt = `Generate a multiple-choice quiz on the topic of ${topicName}. Create ${numQuestion} questions. Each question should have 4 answer options. The correct answer for each question should be clearly marked. Provide the result in JSON format with the following structure:
+
+[
+  {
+    "question": "string",
+    "options": ["option1", "option2", "option3", "option4"],
+    "answer": "correct_option"
+  },
+  {
+    "question": "string",
+    "options": ["option1", "option2", "option3", "option4"],
+    "answer": "correct_option"
+  }
+]
+
+Ensure that the JSON structure is correct and doesn't contain any additional text outside the JSON block.
+`;
 
         // Call the onSubmit function with the combined prompt
         onSubmit(prompt);
@@ -32,13 +48,13 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
 
     return (
         <form onSubmit={handleSubmit} className='w-full h-auto flex md:flex-row flex-col items-center justify-center gap-2 '>
-            <section 
-            className='flex md:flex-row flex-col gap-4 border-white/50 rounded-2xl p-5 bg-[#0a100d]   shadow-white border-2 md:w-auto w-[20rem] relative'
+            <section
+                className='flex md:flex-row flex-col gap-4 border-white/50 rounded-2xl p-5 bg-[#0a100d]   shadow-white border-2 md:w-auto w-[20rem] relative'
             >
                 <div className='flex md:flex-row flex-col gap-4'>
                     <label htmlFor="topicName">Topic</label>
                     <input
-                    className='md:w-[10rem] w-full rounded-md'
+                        className='md:w-[10rem] w-full rounded-md'
                         type="text"
                         id="topicName"
                         value={topicName}
@@ -47,7 +63,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
                     />
                     <label htmlFor="numQuestion">Number of Questions:</label>
                     <input
-                    className='md:w-10 w-full rounded-md'
+                        className='md:w-10 w-full rounded-md'
                         type="number"
                         id="numQuestion"
                         value={numQuestion}
@@ -56,7 +72,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
                     />
                 </div>
                 <div className='flex items-center justify-center rounded-md bg-white/80 hover:bg-white  p-1 btn'>
-                    <button type="submit" className='text-black w-fit text-2xl rounded-full hover:scale-110 duration-300 '><FaArrowAltCircleUp/></button>
+                    <button type="submit" className='text-black w-fit text-2xl rounded-full hover:scale-110 duration-300 '><FaArrowAltCircleUp /></button>
                 </div>
             </section>
         </form>

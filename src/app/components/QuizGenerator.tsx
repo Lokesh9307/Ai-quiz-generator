@@ -46,6 +46,7 @@ const QuizGenerator: React.FC = () => {
                 const chunkText = chunk.text();
                 jsonResponse += chunkText;
             }
+            console.log(jsonResponse)
 
             jsonResponse = jsonResponse.replace(/```json|```/g, "");
 
