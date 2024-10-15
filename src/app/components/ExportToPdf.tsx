@@ -49,7 +49,7 @@ const ExportToPDF: React.FC<ExportToPDFProps> = ({ quizzes }) => {
     };
 
     return (
-        <div className='w-fit'>
+        <div className='relative group'>
             <button 
                 onClick={exportToPDF} 
                 disabled={quizzes.length === 0} 
@@ -57,6 +57,9 @@ const ExportToPDF: React.FC<ExportToPDFProps> = ({ quizzes }) => {
             >
                 <FaFilePdf className='md:text-3xl text-xl text-red-600' />
             </button>
+            <span className="w-[8rem] absolute left-1/2 transform -translate-x-1/2 top-full mt-2 hidden group-hover:block bg-black text-white text-sm rounded p-1">
+                Export as PDF
+            </span>
         </div>
     );
 };

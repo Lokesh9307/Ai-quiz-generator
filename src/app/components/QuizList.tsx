@@ -28,7 +28,7 @@ const QuizList: React.FC<QuizListProps> = ({ quizzes }) => {
     };
 
     return (
-        <div className='w-full h-full sm:text-lg text-sm text-white px-5 flex-flex-col gap-6 mb-1rem'>
+        <div className='w-full h-full sm:text-lg text-sm text-white px-5 flex-flex-col gap-6 mb-1rem mt-5'>
             {quizzes.length > 0 ? <h1 className='text-center'>Result</h1>:<></>}
             {quizzes.map((quiz, index) => (
                 <div key={index} className='mt-5'>

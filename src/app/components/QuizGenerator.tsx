@@ -28,7 +28,6 @@ const QuizGenerator: React.FC = () => {
     const fetchQuizzes = async (userPrompt: string) => {
         setLoading(true);
         const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
-        console.log(apiKey); // Ensure you see the correct API key
         if (!apiKey) {
             setError("API key not found in environment variables!");
             setLoading(false);
@@ -46,8 +45,6 @@ const QuizGenerator: React.FC = () => {
                 const chunkText = chunk.text();
                 jsonResponse += chunkText;
             }
-            console.log(jsonResponse)
-
             jsonResponse = jsonResponse.replace(/```json|```/g, "");
 
             const parsedQuizzes = JSON.parse(jsonResponse) as Quiz[];
@@ -74,8 +71,8 @@ const QuizGenerator: React.FC = () => {
             <div className='fixed bottom-10 left-0 right-0 z-10'> {/* Fixed positioning */}
                 <InputForm onSubmit={handlePromptSubmit} />
             </div>
-            <div className='fixed right-3 top-16 flex items-center justify-center gap-3'>
-                <NewChat setQuizzes={setQuizzes} setPrompt={setPrompt}/>
+            <div className='fixed right-3 md:top-16 top-20 flex items-center justify-center gap-3'>
+                <NewChat setQuizzes={setQuizzes} setPrompt={setPrompt} />
                 <ExportToPDF quizzes={quizzes} />
             </div>
         </div>
