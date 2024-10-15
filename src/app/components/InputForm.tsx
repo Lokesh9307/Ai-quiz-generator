@@ -1,7 +1,6 @@
 // components/InputForm.tsx
 import { useState } from 'react';
 import { FaArrowAltCircleUp } from "react-icons/fa";
-import { IoReloadCircleSharp } from "react-icons/io5";
 import '../globals.css';
 
 interface InputFormProps {
