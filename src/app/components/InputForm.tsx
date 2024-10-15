@@ -20,7 +20,7 @@ const InputForm: React.FC<InputFormProps> = ({ onSubmit }) => {
         }
 
         // Combine topicName and numQuestion into a single prompt string
-        const prompt = `Generate a multiple-choice quiz on the topic of ${topicName}. Create ${numQuestion} questions. Each question should have 4 answer options. The correct answer for each question should be clearly marked. Provide the result in JSON format with the following structure:
+        const prompt = `Analyze all websites and Generate a multiple-choice quiz which is most asked by institutes and companies in exam on the topic of ${topicName}. Create exact ${numQuestion} questions. Each question should have 4 answer options. The correct answer for each question should be clearly marked. Provide the result in JSON format with the following structure:
 
 [
   {
