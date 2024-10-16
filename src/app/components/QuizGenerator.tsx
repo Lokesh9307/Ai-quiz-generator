@@ -46,9 +46,7 @@ const QuizGenerator: React.FC = () => {
                 jsonResponse += chunkText;
             }
             jsonResponse = jsonResponse.replace(/```json|```/g, "");
-            console.log(jsonResponse)
             const parsedQuizzes = JSON.parse(jsonResponse) as Quiz[];
-            console.log(parsedQuizzes)
             setQuizzes(parsedQuizzes);
         } catch (error) {
             console.error("Error in API call or processing:", error);
