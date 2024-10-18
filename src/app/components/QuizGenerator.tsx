@@ -1,6 +1,6 @@
 "use client";
 // components/QuizGenerator.tsx
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import QuizList from './QuizList';
 import InputForm from './InputForm';
@@ -45,6 +45,7 @@ const QuizGenerator: React.FC = () => {
                 const chunkText = chunk.text();
                 jsonResponse += chunkText;
             }
+            
             jsonResponse = jsonResponse.replace(/```json|```/g, "");
             const parsedQuizzes = JSON.parse(jsonResponse) as Quiz[];
             setQuizzes(parsedQuizzes);
@@ -57,7 +58,7 @@ const QuizGenerator: React.FC = () => {
     };
 
     return (
-        <div className='relative h-auto w-full md:mb-[3rem] mb-[14rem]'>
+        <div className='relative h-auto w-full '>
             <div className='overflow-y-auto pb-16 flex items-center justify-center'> {/* Added padding to prevent content from being obscured */}
                 {loading && <Loader />}
                 {error && <p className='p-2 border-2 border-red-600 mt-4 text-center rounded-2xl text-red-200'>{error} <br /> <span className='text-center '>Try again!</span> </p> }
